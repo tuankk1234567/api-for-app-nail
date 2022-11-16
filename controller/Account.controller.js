@@ -4,6 +4,8 @@ var bcrypt = require("bcrypt");
 const multer = require("multer");
 const fs = require("fs");
 const saltRounds = 10;
+const upload = require("./multer")
+const cloudinary = require("./cloudinary")
 
 let do_create_account = async (req, res) => {
   var password = req.body.password;
@@ -72,7 +74,15 @@ let login = async (req, res, next) => {
   }
 };
 
+let test = async(req, res)=>{
+  console.log(req);
+  // upload(req, res, function(err) {
+  //   console.log(req.body);
+  // })
+}
+
 module.exports = {
   do_create_account,
   login,
+  test
 };
